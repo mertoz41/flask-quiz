@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<h1>Quiz</h1>
+<form method="POST">
+    <!-- Question about the user's name -->
+    <h2>Question 1: What is your name?</h2>
+    <input type="text" name="user_name" />
+
+    <!-- First question with multiple choice -->
+    {% for question in questions %}
+      <div>
+          <h2>{{question.question_text}}</h2>
+          {% for choice in question.choices %}
+              <input type="radio" name="question_{{question.id}}" value="{{choice.choice_text}}" /> {{choice.choice_text}}<br />
+          {% endfor %}
+      </div>
+    {% endfor %}
+    
+    <input type="submit" value="Submit Answers"  style="margin-top: 10px;"/>
+
+   
+  </form>
+{% endblock %}

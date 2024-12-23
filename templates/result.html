@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block head %} {% endblock %} {% block body %}
+
+<h1>Thank you, {{ result.name }}!</h1>
+<p>Your score: {{ result.score }} / 100 </p>
+
+<h2>Your Answers:</h2>
+<ul>
+  {% for question_id, answer in result.answers.items() %}
+  <li>Question {{ question_id }}: {{ answer }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}
